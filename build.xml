@@ -1,0 +1,39 @@
+<project name="Regular Expression Evaluator" default="dist">
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    
+    
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+    
+    
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <target name="prepare" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+    
+    
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <target name="dist" depends="prepare">
+        <javac srcdir="${src.dir}" destdir="${build.dir}"/>
+        
+        <jar destfile="${dist.dir}/RegexEvaluator.jar"
+             basedir="${build.dir}"
+             includes="**/*.class">
+            <manifest>
+                <attribute name="Main-Class" value="com.github.regexevaluator.RegexEvaluatorDriver" />
+            </manifest>
+        </jar>
+    </target>
+</project>
