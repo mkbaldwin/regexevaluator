@@ -1,4 +1,5 @@
 regexevaluator
 ==============
 
-A simple GUI too for evaluating Java style regular expressions.
+A simple GUI tool for evaluating Java style regular expressions.
+
